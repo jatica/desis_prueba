@@ -1,0 +1,8 @@
+Versiones:
+PHP 7.4
+MYSQL 8.0
+
+Indicaciones:
+
+- Ingresar los datos de conección a la base de datos en el archivo /includes/conectar.php
+- Copiar todos los archivos y carpetas en el directorio raiz.
