@@ -19,7 +19,6 @@ $amigo = $_POST['amigo'];
 // buscar votacion con el mismo rut
 
 $resultado_vot = mysqli_query($coneccion, "SELECT * FROM votos WHERE rut LIKE '".$rut."'");
-var_dump($resultado_vot);
 
 if ($resultado_vot->num_rows != 0) {
       echo "El RUT ya ha votado";
