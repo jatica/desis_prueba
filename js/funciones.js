@@ -1,3 +1,6 @@
+
+// funcion para listar comunas según región seleccionada
+
 function seleccionar_comuna (valor) {
   var region_id = valor;
   var respuesta = $.ajax({
@@ -10,6 +13,8 @@ function seleccionar_comuna (valor) {
     $('#seleccion_comuna').html(html);
   });
 }
+
+// validaciones de los campos del formulario
 
 function validaciones () {
   var si_envio = true;
@@ -67,6 +72,8 @@ function validaciones () {
   return si_envio;
 }
 
+// envio del formulario para su guardado
+
 function enviar() {
   $('#exito').html('');
   si_envio = validaciones();
@@ -119,6 +126,8 @@ function enviar() {
 
 }
 
+// funcion para la validacion del rut
+
 var Fn = {
     // Valida el rut con su cadena completa "XXXXXXXX-X"
     validaRut : function (rutCompleto) {
@@ -140,6 +149,8 @@ var Fn = {
     }
 }
 
+// funcion principal para la validacion del rut
+
 function valida_rut(){
     if (Fn.validaRut( $("#rut").val() )){
       return true;
@@ -147,6 +158,8 @@ function valida_rut(){
       return false;
     }
 };
+
+// validacion del email
 
 function valida_email () {
   var regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/;
@@ -161,6 +174,8 @@ function valida_email () {
 
 jQuery(function($) {
 
+  // limitar a solo numeros y letras para el campo alias
+
   $('#alias').bind('keypress', function(event) {
     var regex = new RegExp("^[a-zA-Z0-9 ]+$");
     var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
@@ -169,6 +184,8 @@ jQuery(function($) {
       return false;
     }
   });
+
+// captura de perdida del foco del campo RUT para validar
 
   $('#rut').bind('blur', function(event) {
     si_rut = valida_rut();
@@ -179,6 +196,8 @@ jQuery(function($) {
       return false;
     }
   });
+
+// captura de perdida del foco del campo email para validar
 
   $('#email').bind('blur', function(event) {
     si_email = valida_email();
